@@ -1,4 +1,4 @@
-package com.project.apps.system;
+package com.project.apps.application;
 
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;

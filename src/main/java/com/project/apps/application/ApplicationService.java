@@ -1,4 +1,4 @@
-package com.project.apps.system;
+package com.project.apps.application;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.servlet.ModelAndView;

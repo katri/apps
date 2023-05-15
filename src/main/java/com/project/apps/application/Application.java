@@ -1,5 +1,6 @@
-package com.project.apps.system;
+package com.project.apps.application;
 
+import com.project.apps.appService.AppServiceInfo;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;

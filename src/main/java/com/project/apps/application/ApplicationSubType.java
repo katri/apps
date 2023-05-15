@@ -1,4 +1,4 @@
-package com.project.apps.system;
+package com.project.apps.application;
 
 public enum ApplicationSubType {
     REST, SOAP;
