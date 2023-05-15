@@ -1,16 +1,12 @@
 package com.project.apps.system;
 
-import lombok.Data;
+import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.ModelAndView;
 
-import java.time.LocalTime;
-
-@Data
+@Service
 public class ApplicationService {
-    private String id;
-    private String applicationId;
-    private String name;
-    private String type;
-    private String subType;
-    private String description;
-    private LocalTime last_modified;
+    public ModelAndView addApplication(ApplicationView applicationView) {
+
+        return null;
+    }
 }

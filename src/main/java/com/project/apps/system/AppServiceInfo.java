@@ -6,20 +6,22 @@ import jakarta.validation.constraints.Size;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.math.BigDecimal;
 import java.time.Instant;
-import java.util.LinkedHashSet;
-import java.util.Set;
 
 @Getter
 @Setter
 @Entity
-@Table(name = "application")
-public class Application {
+@Table(name = "app_service")
+public class AppServiceInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "app_code", nullable = false)
+    @Column(name = "service_code", nullable = false)
     private Long id;
+
+    @NotNull
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "app_code", nullable = false)
+    private Application appCode;
 
     @Size(max = 120)
     @NotNull
@@ -28,27 +30,20 @@ public class Application {
 
     @Size(max = 50)
     @NotNull
-    @Column(name = "app_group", nullable = false, length = 50)
-    private String appGroup;
+    @Column(name = "type", nullable = false, length = 50)
+    private String type;
 
     @Size(max = 50)
     @NotNull
-    @Column(name = "app_type", nullable = false, length = 50)
-    private String appType;
+    @Column(name = "sub_type", nullable = false, length = 50)
+    private String subType;
 
     @NotNull
     @Column(name = "description", nullable = false, length = Integer.MAX_VALUE)
     private String description;
 
     @NotNull
-    @Column(name = "app_cost", nullable = false)
-    private BigDecimal appCost;
-
-    @NotNull
     @Column(name = "last_modified", nullable = false)
     private Instant lastModified;
-
-    @OneToMany(mappedBy = "appCode")
-    private Set<AppServiceInfo> appServices = new LinkedHashSet<>();
 
 }
