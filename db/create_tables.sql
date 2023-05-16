@@ -8,15 +8,15 @@ GRANT ALL ON SCHEMA public TO PUBLIC;
 
 -- tables
 -- Table: app_service
-CREATE TABLE app_service (
+CREATE TABLE app_routine (
                              app_code bigserial  NOT NULL,
-                             service_code bigserial  NOT NULL,
+                             routine_code bigserial  NOT NULL,
                              name varchar(120)  NOT NULL,
                              type varchar(50)  NOT NULL,
                              sub_type varchar(50)  NOT NULL,
                              description text  NOT NULL,
                              last_modified timestamp  NOT NULL,
-                             CONSTRAINT app_service_pk PRIMARY KEY (service_code)
+                             CONSTRAINT app_routine_pk PRIMARY KEY (routine_code)
 );
 
 -- Table: application
@@ -33,7 +33,7 @@ CREATE TABLE application (
 
 -- foreign keys
 -- Reference: app_service_application (table: app_service)
-ALTER TABLE app_service ADD CONSTRAINT app_service_application
+ALTER TABLE app_routine ADD CONSTRAINT app_routine_application
     FOREIGN KEY (app_code)
         REFERENCES application (app_code)
         NOT DEFERRABLE

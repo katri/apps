@@ -12,11 +12,11 @@ import java.time.Instant;
 @Getter
 @Setter
 @Entity
-@Table(name = "app_service")
+@Table(name = "app_routine")
 public class AppRoutine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "service_code", nullable = false)
+    @Column(name = "routine_code", nullable = false)
     private Long id;
 
     @NotNull

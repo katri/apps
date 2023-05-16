@@ -1,5 +1,6 @@
 package com.project.apps.application;
 
+import com.project.apps.appRoutine.AppRoutineService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
@@ -11,6 +12,8 @@ public class ApplicationController {
     @Resource
     private ApplicationService applicationService;
 
+    @Resource
+    private AppRoutineService appRoutineService;
     @GetMapping("/new")
     public ModelAndView displayNewApplicationForm() {
         return new ModelAndView("new");
