@@ -1,5 +1,6 @@
 package com.project.apps.application;
 
+import com.project.apps.appRoutine.AppRoutine;
 import com.project.apps.appRoutine.AppRoutineResponseView;
 import com.project.apps.appRoutine.AppRoutineService;
 import jakarta.annotation.Resource;
@@ -30,11 +31,17 @@ public class ApplicationService {
         return applicationRepository.findById(appCode).get();
     }
 
-    public ApplicationWithRoutinesView getApplicationBy(String applicationName) {
+    public ApplicationWithRoutinesView getApplicationWithRoutines(String applicationName) {
         Application application = applicationRepository.findByName(applicationName);
         ApplicationWithRoutinesView response = applicationMapper.toResponseWithRoutinesDto(application);
         List<AppRoutineResponseView> routines = appRoutineService.findAllRoutines(application.getId());
         response.setRoutines(routines);
         return response;
+    }
+
+    public ApplicationResponseView getApplication(String serviceName) {
+        AppRoutine appRoutine = appRoutineService.findByName(serviceName);
+        Application application = appRoutine.getApplication();
+        return applicationMapper.toResponseDto(application);
     }
 }

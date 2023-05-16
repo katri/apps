@@ -7,8 +7,6 @@ import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.List;
-
 @RestController
 @RequestMapping("/applications")
 public class ApplicationController {
@@ -29,13 +27,18 @@ public class ApplicationController {
         return applicationService.addApplication(applicationRequestView);
     }
 
-    @GetMapping("/find")
-    public ApplicationWithRoutinesView getApplicationBy(@RequestParam String applicationName) {
-        return applicationService.getApplicationBy(applicationName);
+    @GetMapping("/find/application")
+    public ApplicationWithRoutinesView getApplicationWithRoutines(@RequestParam String applicationName) {
+        return applicationService.getApplicationWithRoutines(applicationName);
     }
 
     @PostMapping("/routine")
     public AppRoutineResponseView addAppRoutine(@RequestBody AppRoutineRequestView request) {
         return appRoutineService.addAppRoutine(request);
+    }
+
+    @GetMapping("/find/routine")
+    public ApplicationResponseView getApplication(@RequestParam String routineName) {
+        return applicationService.getApplication(routineName);
     }
 }

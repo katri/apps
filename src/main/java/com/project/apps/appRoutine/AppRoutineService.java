@@ -32,4 +32,8 @@ public class AppRoutineService {
     public List<AppRoutineResponseView> findAllRoutines(Long id) {
         return appRoutineMapper.toResponseDto(appRoutineRepository.findAllRoutinesForApplication(id));
     }
+
+    public AppRoutine findByName(String routineName) {
+        return appRoutineRepository.findByName(routineName);
+    }
 }
