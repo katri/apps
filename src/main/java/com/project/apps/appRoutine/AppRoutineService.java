@@ -6,6 +6,7 @@ import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.List;
 
 @Service
 public class AppRoutineService {
@@ -26,5 +27,9 @@ public class AppRoutineService {
         routine.setApplication(application);
         appRoutineRepository.save(routine);
         return appRoutineMapper.toResponseDto(routine);
+    }
+
+    public List<AppRoutineResponseView> findAllRoutines(Long id) {
+        return appRoutineMapper.toResponseDto(appRoutineRepository.findAllRoutinesForApplication(id));
     }
 }

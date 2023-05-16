@@ -10,6 +10,8 @@ public interface ApplicationMapper {
 
     ApplicationResponseView toResponseDto(Application application);
 
+    ApplicationWithRoutinesView toResponseWithRoutinesDto(Application application);
+
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)
     Application partialUpdate(ApplicationRequestView applicationRequestView, @MappingTarget Application application);
 }

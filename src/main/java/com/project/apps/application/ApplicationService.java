@@ -1,12 +1,17 @@
 package com.project.apps.application;
 
+import com.project.apps.appRoutine.AppRoutineResponseView;
+import com.project.apps.appRoutine.AppRoutineService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
 import java.time.Instant;
+import java.util.List;
 
 @Service
 public class ApplicationService {
+    @Resource
+    private AppRoutineService appRoutineService;
 
     @Resource
     private ApplicationMapper applicationMapper;
@@ -23,5 +28,13 @@ public class ApplicationService {
 
     public Application findApplicationBy(Long appCode) {
         return applicationRepository.findById(appCode).get();
+    }
+
+    public ApplicationWithRoutinesView getApplicationBy(String applicationName) {
+        Application application = applicationRepository.findByName(applicationName);
+        ApplicationWithRoutinesView response = applicationMapper.toResponseWithRoutinesDto(application);
+        List<AppRoutineResponseView> routines = appRoutineService.findAllRoutines(application.getId());
+        response.setRoutines(routines);
+        return response;
     }
 }
