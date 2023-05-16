@@ -3,6 +3,7 @@ package com.project.apps.application;
 import com.project.apps.appRoutine.AppRoutine;
 import com.project.apps.appRoutine.AppRoutineResponseView;
 import com.project.apps.appRoutine.AppRoutineService;
+import com.project.apps.validation.ValidationService;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -21,6 +22,7 @@ public class ApplicationService {
     private ApplicationRepository applicationRepository;
 
     public ApplicationResponseView addApplication(ApplicationRequestView request) {
+        ValidationService.validateRequest(request);
         Application application = applicationMapper.toEntity(request);
         application.setLastModified(Instant.now());
         applicationRepository.save(application);
