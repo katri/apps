@@ -2,7 +2,6 @@ package com.project.apps.application;
 
 import com.project.apps.appRoutine.AppRoutineResponseView;
 import lombok.Data;
-import lombok.Setter;
 
 import java.io.Serializable;
 import java.util.List;

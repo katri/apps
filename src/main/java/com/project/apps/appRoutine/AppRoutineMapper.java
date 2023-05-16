@@ -8,7 +8,6 @@ import java.util.List;
 public interface AppRoutineMapper {
     AppRoutine toEntity(AppRoutineRequestView appRoutineRequestView);
 
-    AppRoutineRequestView toRequestDto(AppRoutine appRoutine);
     AppRoutineResponseView toResponseDto(AppRoutine appRoutine);
     List<AppRoutineResponseView> toResponseDto(List<AppRoutine> appRoutines);
 
