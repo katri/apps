@@ -21,4 +21,8 @@ public class ApplicationService {
         ApplicationResponseView response = applicationMapper.toResponseDto(application);
         return response;
     }
+
+    public Application findApplicationBy(Long appCode) {
+        return applicationRepository.findById(appCode).get();
+    }
 }

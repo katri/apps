@@ -49,7 +49,7 @@ public class Application {
     @Column(name = "last_modified", nullable = false)
     private Instant lastModified;
 
-    @OneToMany(mappedBy = "appCode")
+    @OneToMany(mappedBy = "application")
     private Set<AppRoutine> appServices = new LinkedHashSet<>();
 
 }

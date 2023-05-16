@@ -22,7 +22,7 @@ public class AppRoutine {
     @NotNull
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "app_code", nullable = false)
-    private Application appCode;
+    private Application application;
 
     @Size(max = 120)
     @NotNull
