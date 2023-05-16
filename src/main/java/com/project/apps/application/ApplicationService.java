@@ -1,15 +1,24 @@
 package com.project.apps.application;
 
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
-import org.springframework.web.servlet.ModelAndView;
+
+import java.time.Instant;
 
 @Service
 public class ApplicationService {
-    public ModelAndView addApplication(ApplicationView applicationView) {
-        Application application = new Application();
 
+    @Resource
+    private ApplicationMapper applicationMapper;
 
+    @Resource
+    private ApplicationRepository applicationRepository;
 
-        return null;
+    public ApplicationResponseView addApplication(ApplicationRequestView request) {
+        Application application = applicationMapper.toEntity(request);
+        application.setLastModified(Instant.now());
+        applicationRepository.save(application);
+        ApplicationResponseView response = applicationMapper.toResponseDto(application);
+        return response;
     }
 }

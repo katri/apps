@@ -17,7 +17,7 @@ public class ApplicationController {
     }
 
     @PostMapping("/new")
-    public ModelAndView addApplication(@RequestBody ApplicationView applicationView) {
-        return applicationService.addApplication(applicationView);
+    public ApplicationResponseView addApplication(@RequestBody ApplicationRequestView applicationRequestView) {
+        return applicationService.addApplication(applicationRequestView);
     }
 }
