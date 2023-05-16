@@ -4,6 +4,8 @@ plugins {
 	id 'io.spring.dependency-management' version '1.1.0'
 }
 
+apply plugin: 'java'
+
 group = 'com.project'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '17'
@@ -11,6 +13,9 @@ sourceCompatibility = '17'
 repositories {
 	mavenCentral()
 }
+
+ext.webjarsFontawesomeVersion = "4.7.0"
+ext.webjarsBootstrapVersion = "5.2.3"
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
@@ -25,6 +30,10 @@ dependencies {
 
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.1.0'
 
+	runtimeOnly "org.webjars.npm:bootstrap:${webjarsBootstrapVersion}"
+	runtimeOnly "org.webjars.npm:font-awesome:${webjarsFontawesomeVersion}"
+
+
 	annotationProcessor 'org.mapstruct:mapstruct-processor:1.5.4.Final'
 	annotationProcessor 'org.projectlombok:lombok-mapstruct-binding:0.2.0'
 	implementation "org.mapstruct:mapstruct:1.5.4.Final"
@@ -33,6 +42,27 @@ dependencies {
 	compileOnly 'org.projectlombok:lombok:1.18.26'
 	annotationProcessor 'org.projectlombok:lombok:1.18.26'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
+
+	implementation 'org.springframework.boot:spring-boot-starter-cache'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'javax.cache:cache-api'
+	implementation 'jakarta.xml.bind:jakarta.xml.bind-api'
+	runtimeOnly 'org.springframework.boot:spring-boot-starter-actuator'
+	runtimeOnly "org.webjars.npm:bootstrap:${webjarsBootstrapVersion}"
+	runtimeOnly "org.webjars.npm:font-awesome:${webjarsFontawesomeVersion}"
+	runtimeOnly 'com.github.ben-manes.caffeine:caffeine'
+	runtimeOnly 'com.h2database:h2'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	runtimeOnly 'org.postgresql:postgresql'
+	developmentOnly 'org.springframework.boot:spring-boot-devtools'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+
 }
 
 tasks.named('test') {

@@ -1,0 +1,23 @@
+version: "2.2"
+
+services:
+  mysql:
+    image: mysql:8.0
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_ALLOW_EMPTY_PASSWORD=true
+      - MYSQL_USER=postgres
+      - MYSQL_PASSWORD=student123
+      - MYSQL_DATABASE=postgres
+    volumes:
+      - "./conf.d:/etc/mysql/conf.d:ro"
+  postgres:
+    image: postgres:15.2
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=student123
+      - POSTGRES_DB=postgres
