@@ -1,4 +1,4 @@
-package com.project.apps.appService;
+package com.project.apps.appRoutine;
 
 import lombok.Data;
 
@@ -6,10 +6,11 @@ import java.io.Serializable;
 import java.time.Instant;
 
 /**
- * A DTO for the {@link AppServiceInfo} entity
+ * A DTO for the {@link AppRoutine} entity
  */
 @Data
-public class AppServiceInfoView implements Serializable {
+public class AppRoutineResponseView implements Serializable {
+    private final Long id;
     private final String name;
     private final String type;
     private final String subType;

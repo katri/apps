@@ -1,6 +1,6 @@
 package com.project.apps.application;
 
-import com.project.apps.appService.AppServiceInfo;
+import com.project.apps.appRoutine.AppRoutine;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
@@ -50,6 +50,6 @@ public class Application {
     private Instant lastModified;
 
     @OneToMany(mappedBy = "appCode")
-    private Set<AppServiceInfo> appServices = new LinkedHashSet<>();
+    private Set<AppRoutine> appServices = new LinkedHashSet<>();
 
 }

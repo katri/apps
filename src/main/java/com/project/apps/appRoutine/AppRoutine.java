@@ -1,4 +1,4 @@
-package com.project.apps.appService;
+package com.project.apps.appRoutine;
 
 import com.project.apps.application.Application;
 import jakarta.persistence.*;
@@ -13,7 +13,7 @@ import java.time.Instant;
 @Setter
 @Entity
 @Table(name = "app_service")
-public class AppServiceInfo {
+public class AppRoutine {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "service_code", nullable = false)
