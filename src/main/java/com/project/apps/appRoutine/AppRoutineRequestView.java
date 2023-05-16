@@ -3,7 +3,6 @@ package com.project.apps.appRoutine;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.time.Instant;
 
 /**
  * A DTO for the {@link AppRoutine} entity

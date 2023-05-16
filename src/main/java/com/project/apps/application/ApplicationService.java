@@ -18,8 +18,7 @@ public class ApplicationService {
         Application application = applicationMapper.toEntity(request);
         application.setLastModified(Instant.now());
         applicationRepository.save(application);
-        ApplicationResponseView response = applicationMapper.toResponseDto(application);
-        return response;
+        return applicationMapper.toResponseDto(application);
     }
 
     public Application findApplicationBy(Long appCode) {

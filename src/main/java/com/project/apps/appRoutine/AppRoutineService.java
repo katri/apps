@@ -25,7 +25,6 @@ public class AppRoutineService {
         Application application = applicationService.findApplicationBy(request.getAppCode());
         routine.setApplication(application);
         appRoutineRepository.save(routine);
-        AppRoutineResponseView response = appRoutineMapper.toResponseDto(routine);
-        return response;
+        return appRoutineMapper.toResponseDto(routine);
     }
 }
