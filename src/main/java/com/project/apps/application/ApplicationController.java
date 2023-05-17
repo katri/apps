@@ -17,9 +17,20 @@ public class ApplicationController {
     @Resource
     private AppRoutineService appRoutineService;
 
+    @GetMapping("/")
+    public ModelAndView index() {
+        return new ModelAndView("index");
+    }
+
     @GetMapping("/new")
     public ModelAndView displayNewApplicationForm() {
         return new ModelAndView("new");
+    }
+
+
+    @GetMapping("/services/new")
+    public ModelAndView displayNewServiceForm() {
+        return new ModelAndView("service");
     }
 
     @PostMapping("/")
