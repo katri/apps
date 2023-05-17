@@ -27,9 +27,9 @@ public class ApplicationController {
         return new ModelAndView("new");
     }
 
-    @GetMapping("/services/new")
+    @GetMapping("/routines/new")
     public ModelAndView displayNewServiceForm() {
-        return new ModelAndView("service");
+        return new ModelAndView("new");
     }
 
     @GetMapping("/search")
