@@ -22,7 +22,7 @@ public class ApplicationController {
         return new ModelAndView("new");
     }
 
-    @PostMapping("/new")
+    @PostMapping("/")
     public ApplicationResponseView addApplication(@RequestBody ApplicationRequestView applicationRequestView) {
         return applicationService.addApplication(applicationRequestView);
     }
@@ -32,18 +32,17 @@ public class ApplicationController {
         return applicationService.getApplicationWithRoutines(applicationName);
     }
 
-    @GetMapping("{name}")
+    @GetMapping("/{name}")
     public String getApplicationByName(@PathVariable String name) {
         return applicationService.getApplicationByName(name);
     }
 
-
-    @PostMapping("/routine")
+    @PostMapping("/routines")
     public AppRoutineResponseView addAppRoutine(@RequestBody AppRoutineRequestView request) {
         return appRoutineService.addAppRoutine(request);
     }
 
-    @GetMapping("/find/routine")
+    @GetMapping("/find/routines")
     public ApplicationResponseView getApplication(@RequestParam String routineName) {
         return applicationService.getApplication(routineName);
     }
