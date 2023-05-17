@@ -8,8 +8,8 @@ import java.util.List;
 
 @Data
 public class ApplicationWithRoutinesView implements Serializable {
-    private final long id;
-    private final String name;
+    private final long appId;
+    private final String appName;
     private final String appGroup;
     private final String appType;
     private final String description;

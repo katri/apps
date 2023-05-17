@@ -10,6 +10,8 @@ public interface ApplicationMapper {
 
     ApplicationResponseView toResponseDto(Application application);
 
+    @Mapping(target = "appId", source = "id")
+    @Mapping(target = "appName", source = "name")
     ApplicationWithRoutinesView toResponseWithRoutinesDto(Application application);
 
     @BeanMapping(nullValuePropertyMappingStrategy = NullValuePropertyMappingStrategy.IGNORE)

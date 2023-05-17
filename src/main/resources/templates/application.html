@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="et">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+<head>
+    <meta charset="utf-8">
+    <title>
+        Rakenduse info
+    </title>
+</head>
+<body>
+<div class="container">
+
+    <h2>Rakendus</h2>
+    <h3>Rakenduse info</h3>
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">Rakenduse id</th>
+            <th scope="col">Nimetus</th>
+            <th scope="col">Grupp</th>
+            <th scope="col">Tüüp</th>
+            <th scope="col">Hind</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>{{appId}}</td>
+            <td>{{appName}}</td>
+            <td>{{appGroup}}</td>
+            <td>{{appType}}</td>
+            <td>{{appCost}} EUR</td>
+        </tr>
+        </tbody>
+    </table>
+
+    <h3>Rakenduse teenuste info</h3>
+
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Teenuse id</th>
+            <th scope="col">Nimetus</th>
+            <th scope="col">Tüüp</th>
+            <th scope="col">Alamtüüp</th>
+            <th scope="col">Kirjeldus</th>
+        </tr>
+        </thead>
+        <tbody>
+        {{#routines}}
+        <tr>
+
+            <td>{{id}}</td>
+            <td>{{name}}</td>
+            <td>{{type}}</td>
+            <td>{{subType}}</td>
+            <td>{{description}}</td>
+        </tr>
+        {{/routines}}
+        </tbody>
+    </table>
+
+
+    <!--    <div class="flex-row"> id: }</div>-->
+    <!--   {-->
+    <!--    "id": 0,-->
+    <!--    "name": "string",-->
+    <!--    "appGroup": "string",-->
+    <!--    "appType": "string",-->
+    <!--    "description": "string",-->
+    <!--    "appCost": 0,-->
+    <!--    "routines": [-->
+    <!--    {-->
+    <!--    "id": 0,-->
+    <!--    "name": "string",-->
+    <!--    "type": "string",-->
+    <!--    "subType": "string",-->
+    <!--    "description": "string",-->
+    <!--    "lastModified": "2023-05-17T09:45:46.382Z"-->
+    <!--    }-->
+    <!--    ]-->
+    <!--    }-->
+
+</div>
+</body>
+</html>

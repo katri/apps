@@ -32,6 +32,12 @@ public class ApplicationController {
         return applicationService.getApplicationWithRoutines(applicationName);
     }
 
+    @GetMapping("{name}")
+    public String getApplicationByName(@PathVariable String name) {
+        return applicationService.getApplicationByName(name);
+    }
+
+
     @PostMapping("/routine")
     public AppRoutineResponseView addAppRoutine(@RequestBody AppRoutineRequestView request) {
         return appRoutineService.addAppRoutine(request);

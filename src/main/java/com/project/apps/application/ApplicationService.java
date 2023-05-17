@@ -4,6 +4,7 @@ import com.project.apps.appRoutine.AppRoutine;
 import com.project.apps.appRoutine.AppRoutineResponseView;
 import com.project.apps.appRoutine.AppRoutineService;
 import com.project.apps.validation.ValidationService;
+import com.project.apps.web.HTMLTemplateRenderer;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,8 @@ import java.util.List;
 
 @Service
 public class ApplicationService {
+    private final HTMLTemplateRenderer htmlTemplateRenderer = new HTMLTemplateRenderer();
+
     @Resource
     private AppRoutineService appRoutineService;
 
@@ -41,9 +44,21 @@ public class ApplicationService {
         return response;
     }
 
+    public String getApplicationByName(String name) {
+        ApplicationWithRoutinesView application = getApplicationWithRoutines(name);
+        try {
+            return htmlTemplateRenderer.toHtml(application, "templates/application.html");
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return "Lehekülge ei leitud";
+        }
+    }
+
     public ApplicationResponseView getApplication(String serviceName) {
         AppRoutine appRoutine = appRoutineService.findByName(serviceName);
         Application application = appRoutine.getApplication();
         return applicationMapper.toResponseDto(application);
     }
+
+
 }
