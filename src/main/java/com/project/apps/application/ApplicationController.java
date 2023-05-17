@@ -27,12 +27,15 @@ public class ApplicationController {
         return new ModelAndView("new");
     }
 
-
     @GetMapping("/services/new")
     public ModelAndView displayNewServiceForm() {
         return new ModelAndView("service");
     }
 
+    @GetMapping("/search")
+    public ModelAndView searchApplication() {
+        return new ModelAndView("search_app");
+    }
     @PostMapping("/")
     public ApplicationResponseView addApplication(@RequestBody ApplicationRequestView applicationRequestView) {
         return applicationService.addApplication(applicationRequestView);
@@ -43,8 +46,8 @@ public class ApplicationController {
         return applicationService.getApplicationWithRoutines(applicationName);
     }
 
-    @GetMapping("/{name}")
-    public String getApplicationByName(@PathVariable String name) {
+    @GetMapping("/name")
+    public String getApplicationByName(String name) {
         return applicationService.getApplicationByName(name);
     }
 
