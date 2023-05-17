@@ -54,11 +54,19 @@ public class ApplicationService {
         }
     }
 
-    public ApplicationResponseView getApplication(String serviceName) {
-        AppRoutine appRoutine = appRoutineService.findByName(serviceName);
+    public ApplicationResponseWithRoutineView getApplication(String routineName) {
+        AppRoutine appRoutine = appRoutineService.findByName(routineName);
         Application application = appRoutine.getApplication();
-        return applicationMapper.toResponseDto(application);
+        return applicationMapper.toResponseWithRoutineInfoDto(application, appRoutine.getName());
     }
 
-
+    public String getApplicationByRoutine(String routineName) {
+        ApplicationResponseWithRoutineView application = getApplication(routineName);
+        try {
+            return htmlTemplateRenderer.toHtml(application, "templates/routines/routine.html");
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return "Lehekülge ei leitud";
+        }
+    }
 }

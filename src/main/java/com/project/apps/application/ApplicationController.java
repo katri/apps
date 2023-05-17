@@ -29,13 +29,19 @@ public class ApplicationController {
 
     @GetMapping("/routines/new")
     public ModelAndView displayNewServiceForm() {
-        return new ModelAndView("new");
+        return new ModelAndView("routines/new");
     }
 
     @GetMapping("/search")
     public ModelAndView searchApplication() {
         return new ModelAndView("search_app");
     }
+
+    @GetMapping("/routines/search")
+    public ModelAndView searchRoutines() {
+        return new ModelAndView("routines/search_routine");
+    }
+
     @PostMapping("/")
     public ApplicationResponseView addApplication(@RequestBody ApplicationRequestView applicationRequestView) {
         return applicationService.addApplication(applicationRequestView);
@@ -56,8 +62,13 @@ public class ApplicationController {
         return appRoutineService.addAppRoutine(request);
     }
 
-    @GetMapping("/find/routines")
-    public ApplicationResponseView getApplication(@RequestParam String routineName) {
+    @GetMapping("/routines/namecheck")
+    public ApplicationResponseWithRoutineView getApplication(String routineName) {
         return applicationService.getApplication(routineName);
+    }
+
+    @GetMapping("/routines/name")
+    public String getApplicationByRoutine(String name) {
+        return applicationService.getApplicationByRoutine(name);
     }
 }
