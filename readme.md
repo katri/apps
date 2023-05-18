@@ -5,6 +5,9 @@ Apps  is a Spring Boot application built using Gradle.
 
 git clone https://github.com/katri/apps.git
 
+add databases by running sql sctipt in
+db/create_tables.sql
+
 Run application on your device.
 You can then access application at http://localhost:8080/applications/
 
