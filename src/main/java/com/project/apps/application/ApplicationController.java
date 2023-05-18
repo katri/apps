@@ -1,7 +1,6 @@
 package com.project.apps.application;
 
 import com.project.apps.appRoutine.AppRoutineRequestView;
-import com.project.apps.appRoutine.AppRoutineResponseView;
 import com.project.apps.appRoutine.AppRoutineService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.*;
@@ -58,7 +57,7 @@ public class ApplicationController {
     }
 
     @PostMapping("/routines")
-    public AppRoutineResponseView addAppRoutine(@ModelAttribute AppRoutineRequestView request) {
+    public String addAppRoutine(@ModelAttribute AppRoutineRequestView request) {
         return appRoutineService.addAppRoutine(request);
     }
 
