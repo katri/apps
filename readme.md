@@ -1,6 +1,6 @@
-# Sample application Apps to register appllications and services
+## Sample application Apps to register applications and services
 
-## Running Apps locally
+### Running Apps locally
 Apps  is a Spring Boot application built using Gradle. 
 
 git clone https://github.com/katri/apps.git
@@ -8,7 +8,7 @@ git clone https://github.com/katri/apps.git
 Run application on your device.
 You can then access application at http://localhost:8080/applications/
 
-## Building docker (WIP)
+### Building docker (WIP)
 
 Build docker:
 ```
