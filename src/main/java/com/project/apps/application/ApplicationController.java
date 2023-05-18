@@ -62,11 +62,6 @@ public class ApplicationController {
         return appRoutineService.addAppRoutine(request);
     }
 
-    @GetMapping("/routines/namecheck")
-    public ApplicationResponseWithRoutineView getApplication(String routineName) {
-        return applicationService.getApplication(routineName);
-    }
-
     @GetMapping("/routines/name")
     public String getApplicationByRoutine(String name) {
         return applicationService.getApplicationByRoutine(name);
