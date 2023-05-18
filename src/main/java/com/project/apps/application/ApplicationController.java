@@ -58,7 +58,7 @@ public class ApplicationController {
     }
 
     @PostMapping("/routines")
-    public AppRoutineResponseView addAppRoutine(@RequestBody AppRoutineRequestView request) {
+    public AppRoutineResponseView addAppRoutine(@ModelAttribute AppRoutineRequestView request) {
         return appRoutineService.addAppRoutine(request);
     }
 

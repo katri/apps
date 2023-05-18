@@ -10,7 +10,7 @@
     </title>
 </head>
 <body>
-<form action="/applications/routines/new" method="post" enctype="multipart/form-data">
+<form action="/applications/routines" method="post" enctype="multipart/form-data">
     <div class="container">
         <div class="row justify-content-start">
             <div class="col-2">
@@ -22,18 +22,26 @@
         </div>
         <div class="row justify-content-start">
             <div class="col-2">
-                <label for="group">Rakenduse grupp</label>
+                <label for="appCode">Rakenduse number</label>
             </div>
             <div class="col-2">
-                <input type="text" name="group" id="group">
+                <input type="text" name="appCode" id="appCode">
             </div>
         </div>
         <div class="row justify-content-start">
             <div class="col-2">
-                <label for="sub_group">Rakenduse alamgrupp</label>
+                <label for="type">Teenuse tüüp</label>
             </div>
             <div class="col-2">
-                <input type="text" name="sub_group" id="sub_group">
+                <input type="text" name="type" id="type">
+            </div>
+        </div>
+        <div class="row justify-content-start">
+            <div class="col-2">
+                <label for="subType">Teenuse alamtüüp</label>
+            </div>
+            <div class="col-2">
+                <input type="text" name="subType" id="subType">
             </div>
         </div>
         <div class="row justify-content-start">
@@ -46,15 +54,7 @@
         </div>
         <div class="row align-items-start">
             <div class="col-2">
-                <label for="cost">Kulu</label>
-            </div>
-            <div class="col-2">
-                <input type="number" name="cost" id="cost">
-            </div>
-        </div>
-        <div class="row align-items-start">
-            <div class="col-2">
-                <input type="submit" value="Lisa rakendus">
+                <input type="submit" value="Lisa teenus">
             </div>
         </div>
     </div>
