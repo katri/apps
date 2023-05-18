@@ -24,12 +24,18 @@ public class ApplicationService {
     @Resource
     private ApplicationRepository applicationRepository;
 
-    public ApplicationResponseView addApplication(ApplicationRequestView request) {
+    public String addApplication(ApplicationRequestView request) {
         ValidationService.validateRequest(request);
         Application application = applicationMapper.toEntity(request);
         application.setLastModified(Instant.now());
         applicationRepository.save(application);
-        return applicationMapper.toResponseDto(application);
+        ApplicationResponseView responseView = applicationMapper.toResponseDto(application);
+        try {
+            return htmlTemplateRenderer.toHtml(responseView, "templates/confirmation_app.html");
+        } catch (Exception exception) {
+            exception.printStackTrace();
+            return "Lehekülge ei leitud";
+        }
     }
 
     public Application findApplicationBy(Long appCode) {

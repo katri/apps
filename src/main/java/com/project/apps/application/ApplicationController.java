@@ -43,7 +43,7 @@ public class ApplicationController {
     }
 
     @PostMapping("/")
-    public ApplicationResponseView addApplication(@ModelAttribute ApplicationRequestView applicationRequestView) {
+    public String addApplication(@ModelAttribute ApplicationRequestView applicationRequestView) {
         return applicationService.addApplication(applicationRequestView);
     }
 
