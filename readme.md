@@ -5,7 +5,7 @@ Apps  is a Spring Boot application built using Gradle.
 
 git clone https://github.com/katri/apps.git
 
-add databases by running sql sctipt in
+add databases by running sql script in
 db/create_tables.sql
 
 Run application on your device.
